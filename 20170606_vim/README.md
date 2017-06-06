@@ -4,8 +4,7 @@
 
 * 環境構築 - vim 編
 
-## 環境構築 - vim 編
-
+## 環境構築 - vim 編 
 ### オススメプラグイン
 
 * [dein](https://github.com/Shougo/dein.vim)
@@ -115,6 +114,10 @@ ctrl-x ctrl-o の順番押すと補完候補が表示される。
 ```vim
 imap <C-Space> <C-x><C-o>
 ```
+
+* 関数定義に飛ぶ
+
+飛びたい関数にカーソルをあてて `gd`
 
 ### neocomplete の導入 (option)
 
