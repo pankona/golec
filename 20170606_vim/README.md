@@ -11,6 +11,8 @@
   * vim のパッケージマネージャ
 * [vim-go](https://github.com/fatih/vim-go)
   * go で開発を行うための諸々
+* [tagbar](https://github.com/majutsushi/tagbar)
+  * タグ情報をサイドバー的に出してくれる
 * [neocomplete](https://github.com/Shougo/neocomplete.vim)
   * オートコンプリートの支援
 
@@ -118,6 +120,17 @@ imap <C-Space> <C-x><C-o>
 * 関数定義に飛ぶ
 
 飛びたい関数にカーソルをあてて `gd`
+
+### tagbar の導入
+
+import、宣言している変数、定義している関数の一覧をサイドバー的に表示する。
+
+```vim
+call dein#add('majutsushi/tagbar')
+```
+
+vim を起動して、`:TagbarToggle` を入力すると表示・非表示切り替え。
+
 
 ### neocomplete の導入 (option)
 
