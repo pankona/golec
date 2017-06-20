@@ -23,6 +23,7 @@ type mkdirer interface {
 // mkdirer を実装した struct (本物の実装)
 type realMkDirer struct {}
 func (r *realMkdirer) MkDir(path string) error {
+    // 実際に処理を行う
     return os.MkdirAll(path, 0755)
 }
 
@@ -30,6 +31,7 @@ func (r *realMkdirer) MkDir(path string) error {
 // mkdirer を実装した struct （モック、偽物の実装）
 type mockMkDirer struct {}
 func (m *mockMkdirer) MkDir(path string) error {
+    // 何もしない
     return nil
 }
 ```
