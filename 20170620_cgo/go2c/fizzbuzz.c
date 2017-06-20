@@ -20,7 +20,7 @@ fizzbuzz(int n, char* out, int out_len) {
         strcpy(out, "Fizz");
         ret = strlen("Fizz");
     } else {
-        ret = snprintf(out, 24, "%d", n);
+        ret = snprintf(out, out_len, "%d", n);
     }
     return ret;
 }
