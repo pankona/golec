@@ -6,7 +6,7 @@
 
 ## interface ってそもそもなに？
 
-* メソッドの塊として定義する
+* メソッドの集まりの定義。
 
 ```go
 type mkdirer interface {
@@ -14,7 +14,8 @@ type mkdirer interface {
 }
 ```
 
-* interface に定義されている関数を struct に実装させる
+以下のような特徴がある。
+* interface に定義されている関数を struct に実装させる。
 * interface が定義している関数の実装を満たしていれば、  
 その struct は interface として振る舞うことができるようになる。
 
