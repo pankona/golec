@@ -69,5 +69,4 @@ func main() {
 	}
 	fmt.Println(r2.getName())
 	fmt.Println(r2.Person.getName())
-
 }
