@@ -48,7 +48,7 @@ func (p *Person) getWeight() float32 {
 
 // stringer interface の実装
 func (p *Person) String() string {
-    return fmt.Sprintf("name:%s, age:%d, height:%f, weight:%f", p.name, p.age, p.height, p.weight)
+    return fmt.Sprintf("i'm person. name:%s, age:%d, height:%f, weight:%f", p.name, p.age, p.height, p.weight)
 }
 
 func main() {
@@ -73,28 +73,32 @@ func main() {
 
 ```go
 type Runner struct {
-    Person
+    &Person
     runningSpeed float32
 }
 
-func (r Runner) run() {
+func (r *Runner) run() {
     // 走る
 }
 
 func main() {
     r1:= &Runner{}
+
     // 埋め込みされた struct のメソッドを呼び出せる
+    // 以下二行は同じ意味
     r1.getName()
-    // ↑ と ↓ は同じ意味
     r1.Person.getName()
+
     // stringer interface は Person が実装しているので、Runner も実装済み扱い
+    // 以下二行は同じ意味
     fmt.Println(r1)
+    fmt.Println(r1.Person)
 
     // あくまで構造体を保持しているだけなので、いわゆる継承とは違う。
     // Runner 自身が Person になっているわけではない。
     r2 := &Runner{
         // 明示的に Person メンバを指定して初期化する。
-        Person: Person{
+        Person: &Person{
             name:   "akatsuka",
             height: 180.0,
         },  

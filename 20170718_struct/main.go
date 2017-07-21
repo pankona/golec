@@ -8,7 +8,6 @@ type Person struct {
 	age    int
 	height float32
 	weight float32
-	fmt.Stringer
 }
 
 // メソッドを生やす。receiver は実体。
@@ -33,16 +32,20 @@ func (p *Person) getWeight() float32 {
 
 // stringer interface の実装
 func (p *Person) String() string {
-	return fmt.Sprintf("name:%s, age:%d, height:%f, weight:%f", p.name, p.age, p.height, p.weight)
+	return fmt.Sprintf("i'm person. name:%s, age:%d, height:%f, weight:%f", p.name, p.age, p.height, p.weight)
 }
 
 type Runner struct {
-	Person
+	*Person
 	runningSpeed float32
 }
 
-func (r Runner) run() {
+func (r *Runner) run() {
 	// 走る
+}
+
+func (r *Runner) String() string {
+	return fmt.Sprintf("i'm runner. name:%s, age:%d, height:%f, weight:%f", r.name, r.age, r.height, r.weight)
 }
 
 func main() {
@@ -59,14 +62,17 @@ func main() {
 	fmt.Println(p2)
 
 	r1 := &Runner{}
-	fmt.Println(r1)
+	fmt.Println("i'm runner. ", r1)
 
 	r2 := &Runner{
-		Person: Person{
+		Person: &Person{
 			name:   "akatsuka",
 			height: 180.0,
 		},
 	}
 	fmt.Println(r2.getName())
 	fmt.Println(r2.Person.getName())
+
+	fmt.Println("i'm runner. ", r2)
+	fmt.Println("i'm runner. ", r2.Person)
 }
